@@ -1,0 +1,468 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --bg: #eef3fb;
+    --panel: #ffffff;
+    --panel-soft: #f7faff;
+    --text: #0f172a;
+    --muted: #6b7280;
+    --primary: #1769ff;
+    --primary-dark: #0f4dca;
+    --radius-lg: 20px;
+    --radius-md: 14px;
+    --shadow-soft: 0 10px 30px rgba(15, 23, 42, 0.08);
+}
+
+body {
+    min-height: 100vh;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background:
+        radial-gradient(circle at top right, #dce8ff 0%, transparent 42%),
+        radial-gradient(circle at bottom left, #d7f1ff 0%, transparent 42%),
+        var(--bg);
+    color: var(--text);
+    padding: 16px;
+}
+
+form {
+    width: 100%;
+}
+
+.container {
+    width: min(100%, 980px);
+    margin: 0 auto;
+    background-color: var(--panel-soft);
+    padding: clamp(16px, 2.5vw, 28px);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-soft);
+    border: 1px solid #dbe5f5;
+}
+
+.container .head-text {
+    text-align: center;
+    margin-bottom: 18px;
+}
+
+.container .head-text h1 {
+    color: var(--primary);
+    font-size: clamp(1.25rem, 2.8vw, 2rem);
+    letter-spacing: 0.02em;
+}
+
+.age_weight {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.age,
+.weight {
+    background-color: var(--panel);
+    border-radius: var(--radius-md);
+    border: 1px solid #e6edf8;
+    padding: 14px;
+    min-height: 220px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.age .age_1,
+.weight .weight_1 {
+    text-align: center;
+}
+
+.age .age_1 span,
+.weight .weight_1 span {
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    color: var(--muted);
+    font-weight: 600;
+}
+
+.age .age_num,
+.weight .weight_num {
+    text-align: center;
+    color: var(--primary);
+}
+
+.age .age_num span,
+.weight .weight_num span {
+    font-size: clamp(2.6rem, 8vw, 4.2rem);
+    line-height: 1;
+    font-weight: 700;
+}
+
+.age .increase,
+.weight .increase {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 8px;
+}
+
+.age .increase .minus1,
+.age .increase .plus1,
+.weight .increase .minus,
+.weight .increase .plus {
+    background-color: #0b2459;
+    color: #f8fbff;
+    border-radius: 999px;
+    width: 34px;
+    height: 34px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    cursor: pointer;
+    user-select: none;
+}
+
+.height,
+.gender,
+.btn {
+    margin-top: 14px;
+    border-radius: var(--radius-md);
+    background-color: var(--panel);
+    border: 1px solid #e6edf8;
+}
+
+.height {
+    padding: 16px;
+}
+
+.height .height_con {
+    text-align: center;
+}
+
+.height_con .height_1 span {
+    color: var(--muted);
+    font-size: clamp(1rem, 2.2vw, 1.4rem);
+    font-weight: 600;
+}
+
+.height_con .height_num {
+    color: var(--primary);
+    font-size: clamp(2.4rem, 8vw, 4rem);
+    line-height: 1.1;
+    font-weight: 700;
+    margin: 8px 0 12px;
+}
+
+.height_con input {
+    width: min(100%, 760px);
+    accent-color: var(--primary);
+}
+
+.height_con .increase {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+.gender {
+    text-align: center;
+    padding: 14px;
+}
+
+.gender .gender_1 span {
+    font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+    color: var(--muted);
+    font-weight: 700;
+}
+
+.gender-toggle {
+    padding: 16px 8px 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 26px;
+}
+
+.gender-toggle label {
+    position: relative;
+    cursor: pointer;
+    padding-left: 30px;
+    font-size: 1rem;
+    color: #1f2937;
+    font-weight: 500;
+}
+
+.gender-toggle input[type="radio"] {
+    display: none;
+}
+
+.gender-toggle label::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--primary);
+    border-radius: 50%;
+    background: #fff;
+    transition: background-color 0.2s ease;
+}
+
+.gender-toggle input[type="radio"]:checked + label::before {
+    background: var(--primary);
+}
+
+.btn {
+    padding: 18px;
+    text-align: center;
+}
+
+.btn button,
+.open_modal form button {
+    width: min(100%, 440px);
+    min-height: 50px;
+    border: none;
+    border-radius: 12px;
+    font-size: clamp(0.95rem, 2vw, 1.1rem);
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn button:hover,
+.open_modal form button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 18px rgba(23, 105, 255, 0.35);
+}
+
+
+
+.form_cat{
+    text-align: center;
+}
+.form_cat #res_category{
+    font-size: 30px;
+    font-style: italic;
+    
+}
+/* Popup */
+.open_modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    background: rgba(5, 16, 40, 0.45);
+    backdrop-filter: blur(2px);
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+}
+
+.open_modal.show {
+    display: flex;
+}
+
+.open_modal .modal_card {
+    width: min(100%, 640px);
+    max-height: calc(100vh - 32px);
+    overflow: auto;
+    border-radius: 18px;
+    padding: clamp(16px, 2.5vw, 26px);
+    background-color: #f8f9fc;
+    border: 1px solid #e5ebf8;
+    box-shadow: 0 20px 45px rgba(10, 23, 55, 0.25);
+    position: relative;
+    animation: modalFadeIn 0.2s ease-out;
+}
+
+.open_modal .close_modal {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 34px;
+    height: 34px;
+    border: none;
+    border-radius: 50%;
+    background: #edf2fb;
+    color: #2b3853;
+    font-size: 24px;
+    line-height: 1;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.open_modal .close_modal:hover {
+    background: #dfe8f6;
+    transform: scale(1.05);
+}
+
+.open_modal .text_1 {
+    padding: 14px 26px 8px;
+}
+
+.open_modal .text_1 span {
+    font-size: clamp(1.2rem, 3vw, 2rem);
+    color: #374151;
+    font-weight: 700;
+}
+
+.open_modal .text_2 {
+    padding-top: 14px;
+    padding-bottom: 18px;
+}
+
+.open_modal .text_2 span {
+    font-size: clamp(1rem, 2.6vw, 1.55rem);
+    color: #4b5563;
+}
+
+.open_modal form {
+    background-color: #fff;
+    border-radius: 14px;
+    border: 1px solid #edf1f7;
+    padding: 0 14px 16px;
+}
+
+.open_modal form .form_BMI {
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    font-weight: 700;
+    padding-top: 16px;
+    padding-bottom: 12px;
+}
+
+.open_modal form .form_num span {
+    font-size: clamp(2.2rem, 8vw, 4rem);
+    color: var(--primary);
+    line-height: 1;
+}
+
+.open_modal form .form_para {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin: 16px 0 20px;
+}
+
+.open_modal form .form_para span {
+    font-size: clamp(0.9rem, 2.4vw, 1.05rem);
+    color: #374151;
+}
+/* data feteching button */
+.show_display{
+    text-align: center;
+}
+.show_display button{
+    margin-top: 30px;
+    width: min(100%, 440px);
+    min-height: 50px;
+    border: none;
+    border-radius: 12px;
+    font-size: clamp(0.95rem, 2vw, 1.1rem);
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+/* BMI table data fetching */
+.bmi-table{
+    width:100%;
+    margin-top:20px;
+    border-collapse:collapse;
+    background:#f4f6fb;
+    border-radius:10px;
+    overflow:hidden;
+    font-family:sans-serif;
+    display: none;
+}
+
+.bmi-table thead{
+    background:linear-gradient(90deg,#2f6df6,#1d4ed8);
+    color:white;
+}
+
+.bmi-table th{
+    padding:10px;
+    text-align:center;
+    font-size:14px;
+}
+
+.bmi-table td{
+    padding:10px;
+    text-align:center;
+    color:#333;
+}
+
+.bmi-table tbody tr{
+    border-bottom:1px solid #d6dbe6;
+}
+
+.bmi-table tbody tr:nth-child(even){
+    background:#eef2fb;
+}
+
+.bmi-table tbody tr:hover{
+    background:#dbe6ff;
+    transition:0.2s;
+}
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px) scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@media (max-width: 900px) {
+    body {
+        padding: 12px;
+    }
+
+    .container {
+        padding: 14px;
+    }
+}
+
+@media (max-width: 700px) {
+    .age_weight {
+        grid-template-columns: 1fr;
+    }
+
+    .age,
+    .weight {
+        min-height: 180px;
+    }
+
+    .gender-toggle {
+        gap: 18px;
+    }
+}
+
+@media (max-width: 520px) {
+    .container {
+        border-radius: 14px;
+    }
+
+    .open_modal {
+        padding: 10px;
+    }
+
+    .open_modal .modal_card {
+        border-radius: 14px;
+        max-height: calc(100vh - 20px);
+    }
+
+    .btn,
+    .height,
+    .gender {
+        margin-top: 12px;
+    }
+}
