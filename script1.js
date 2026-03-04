@@ -125,6 +125,8 @@ const save_res = () => {
     localStorage.setItem("bmiData", JSON.stringify(BMI_User_data));
 
     console.log(BMI_User_data);
+    alert("BMI is Saved")
+    document.getElementById("bmi-modal").style.display="none"
 };
 
 //Displayin the data
@@ -140,7 +142,7 @@ const Display_Data=()=>{
 
     const table=document.querySelector("#bmiTable")
     table.innerHTML=""
-    data.forEach(item => {
+    data.forEach((item,index) => {
         table.innerHTML+=`
         <tr>
             <td>${item.height}</td>
@@ -149,12 +151,22 @@ const Display_Data=()=>{
             <td>${item.gender}</td>
             <td>${item.bmi}</td>
             <td>${item.category}</td>
+            <td  id="delete" onclick="deleteRow(${index})" style="cursor: pointer; background-color: blue; border-radius:5px; color:white">Delete</td>
         </tr>
         `
     });
 }
 
+const deleteRow = (index) => {
 
+    let data = JSON.parse(localStorage.getItem("bmiData")) || [];
+
+    data.splice(index, 1);
+
+    localStorage.setItem("bmiData", JSON.stringify(data));
+
+    Display_Data();
+};
 
 if (calculateBtn && bmiModal) {
   calculateBtn.addEventListener("click", () => {
