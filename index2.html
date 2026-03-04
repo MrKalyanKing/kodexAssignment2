@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style1.css">
+    <title>BMI</title>
+</head>
+<body>
+
+<form action="">
+    <div class="container">
+
+        <div class="head-text">
+            <h1>BMI CALCULATOR</h1>
+        </div>
+        <!-- age and weight  -->
+        <div class="age_weight">
+            <!-- age  -->
+            <div class="age">
+                <div class="age_1"><span>Age</span></div>
+                <div class="age_num"><span id="AgeValue">15</span></div>
+                <div class="increase">
+                    <div class="minus1"><span>-</span></div>
+                    <div class="plus1"><span>+</span></div>
+                </div>
+            </div>
+            <!-- weight -->
+            <div class="weight">
+                <div class="weight_1"><span>Weight(KG)</span></div>
+                <div class="weight_num"><span id="weightValue" >30</span></div>
+                <div class="increase">
+                    <div class="minus"><span>-</span></div>
+                    <div class="plus"><span>+</span></div>
+                </div>
+            </div>
+        </div>
+            <!-- height -->
+
+            <div class="height">
+                <div class="height_con">
+                    <div class="height_1"><span>Height(cm)</span></div>
+                    <div class="height_num"><span id="heightValue">170</span></div>
+                    <div class="range"><input type="range" name="" id="heightRange" min="50" max="300"></div>
+                    <div class="increase">
+                        <div class="st"><span>50CM</span></div>
+                        <div class="end"><span>300CM</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gender -->
+        
+            <div class="gender">
+                <div class="gender_1"><span>Gender</span></div>
+                <div class="gender-toggle">
+                    <input type="radio" id="male" name="gender"value="male" checked>
+                    <label for="male">Male</label>
+
+                    <input type="radio" id="female" name="gender" value="female">
+                    <label for="female">Female</label>
+                </div>
+            </div>
+        <!-- button  -->
+         <div class="btn">
+            <button type="button" onclick="BMI_Calculator()" id="calculate-bmi-btn">Calculate BMI</button>
+         </div>
+    </div>
+</form>
+
+<!--  showing the result of previous data  -->
+    <div class="show_display">
+        <button type="button" onclick="Display_Data()">Fetch  The Data</button>
+    </div>
+       <table  class="bmi-table">
+            <thead>
+                <tr>
+                    <th>Height</th>
+                    <th>Weight</th>
+                    <th>Age</th>
+                    <th>Gender</th>
+                    <th>BMI</th>
+                    <th>Category</th>
+                </tr>
+            </thead>
+            <tbody id="bmiTable"></tbody>
+        </table>
+    <!-- open modal -->
+     <div class="open_modal" id="bmi-modal">
+        <div class="modal_card">
+            <button type="button" class="close_modal" id="close-bmi-modal">&times;</button>
+            <div class="text_1"><span>BMI CALCULATOR</span></div>
+            <div class="text_2"><span>Body Mass Index</span></div>
+            <form action="">
+                <div class="form_BMI"><span>BMI Results</span></div>
+                <div class="form_num"><span id="res_num"> </span></div>
+                <div class="form_cat"><span id="res_category"></span></div>
+                <div class="form_para">
+                    <span>Underweight:BMI less than 18.5</span>
+                    <span>Normal weight:BMI 18.5 to 24.9</span>
+                    <span>Overweight:BMI 25 to 29.9</span>
+                    <span>Obesity:30 to 40</span>
+                </div>
+
+                <button type="button" onclick="save_res()">Save the Results</button>
+            </form>
+        </div>
+     </div>
+
+    <script src="script1.js"></script>
+    
+</body>
+</html>
